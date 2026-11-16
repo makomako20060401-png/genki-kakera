@@ -15,7 +15,7 @@ export default async function LoginPage({ searchParams }: Props) {
         <h1>スタッフログイン</h1>
         <p className="portal-muted">従業員専用ページです。</p>
         {!isSupabaseConfigured && (
-          <p className="portal-alert">Supabase がまだ接続されていません（README の手順2を参照）。</p>
+          <p className="portal-alert">Supabase がまだ接続されていません（Vercel の環境変数を設定して再デプロイしてください。README 手順4）。</p>
         )}
         {error && <p className="portal-alert">メールアドレスまたはパスワードが違います。</p>}
         <input type="hidden" name="next" value={next ?? "/staff"} />
