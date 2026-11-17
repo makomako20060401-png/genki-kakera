@@ -23,9 +23,9 @@ export async function middleware(request: NextRequest) {
     },
   });
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // getClaims はログイン情報をその場で検証するため、getUser より速い
+  const { data } = await supabase.auth.getClaims();
+  const user = data?.claims?.sub;
 
   if (!user && !isLogin) {
     const url = request.nextUrl.clone();

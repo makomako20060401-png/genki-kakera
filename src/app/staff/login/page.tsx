@@ -1,3 +1,4 @@
+import SubmitButton from "@/components/SubmitButton";
 import Icon from "@/components/Icon";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { signIn } from "../actions";
@@ -27,9 +28,7 @@ export default async function LoginPage({ searchParams }: Props) {
           <span>パスワード</span>
           <input type="password" name="password" required autoComplete="current-password" />
         </label>
-        <button className="btn btn--gold" type="submit" disabled={!isSupabaseConfigured}>
-          ログイン
-        </button>
+        <SubmitButton disabled={!isSupabaseConfigured} pendingText="ログイン中…">ログイン</SubmitButton>
       </form>
     </main>
   );

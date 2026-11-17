@@ -6,6 +6,11 @@ import { formatDate, getNewsItem } from "@/lib/data";
 
 export const revalidate = 60;
 
+// 最初のアクセス時に作ったページを保存して、2回目以降は即表示する
+export function generateStaticParams() {
+  return [];
+}
+
 type Props = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

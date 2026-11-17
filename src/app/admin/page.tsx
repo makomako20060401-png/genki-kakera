@@ -1,3 +1,4 @@
+import SubmitButton from "@/components/SubmitButton";
 import Flash from "@/components/admin/Flash";
 import GalleryEditor from "@/components/admin/GalleryEditor";
 import ImageUpload from "@/components/admin/ImageUpload";
@@ -100,9 +101,7 @@ export default async function AdminSettings({ searchParams }: Props) {
         </fieldset>
 
         <div className="admin-actions">
-          <button className="btn btn--gold" type="submit">
-            保存する
-          </button>
+          <SubmitButton pendingText="保存中…">保存する</SubmitButton>
         </div>
       </form>
     </div>

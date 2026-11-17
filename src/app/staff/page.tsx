@@ -1,3 +1,4 @@
+import SubmitButton from "@/components/SubmitButton";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import Icon from "@/components/Icon";
@@ -22,7 +23,7 @@ export default async function StaffHome() {
             このアカウント（{user.email}）はスタッフとして登録されていません。店長に登録を依頼してください。
           </p>
           <form action={signOut}>
-            <button className="btn btn--outline">ログアウト</button>
+            <SubmitButton className="btn btn--outline" pendingText="ログアウト中…">ログアウト</SubmitButton>
           </form>
         </div>
       </main>
@@ -41,9 +42,7 @@ export default async function StaffHome() {
           <p className="portal-muted">{user.email} でログイン中</p>
         </div>
         <form action={signOut}>
-          <button className="btn btn--outline btn--sm">
-            <Icon name="logout" size={16} /> ログアウト
-          </button>
+          <SubmitButton className="btn btn--outline btn--sm" pendingText="ログアウト中…">ログアウト</SubmitButton>
         </form>
       </div>
 

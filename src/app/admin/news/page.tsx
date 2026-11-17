@@ -1,3 +1,4 @@
+import SubmitButton from "@/components/SubmitButton";
 import DeleteButton from "@/components/admin/DeleteButton";
 import Flash from "@/components/admin/Flash";
 import { adminNews } from "@/lib/admin-data";
@@ -36,9 +37,7 @@ function NewsForm({ item }: { item?: NewsItem }) {
         <input type="checkbox" name="published" defaultChecked={item?.published ?? true} /> 公開する（外すと下書き）
       </label>
       <div className="admin-actions">
-        <button className="btn btn--gold btn--sm" type="submit">
-          {item ? "保存" : "投稿する"}
-        </button>
+        <SubmitButton className="btn btn--gold btn--sm" pendingText={item ? "保存中…" : "投稿中…"}>{item ? "保存" : "投稿する"}</SubmitButton>
         {item && <DeleteButton action={deleteNews} />}
       </div>
     </form>

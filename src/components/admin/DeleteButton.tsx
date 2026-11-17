@@ -1,5 +1,7 @@
 "use client";
 
+import SubmitButton from "../SubmitButton";
+
 export default function DeleteButton({
   action,
   label = "削除",
@@ -10,16 +12,15 @@ export default function DeleteButton({
   message?: string;
 }) {
   return (
-    <button
-      type="submit"
+    <SubmitButton
+      intent="delete"
       formAction={action}
       formNoValidate
+      confirmMessage={message}
+      pendingText="削除中…"
       className="btn btn--danger btn--sm"
-      onClick={(e) => {
-        if (!confirm(message)) e.preventDefault();
-      }}
     >
       {label}
-    </button>
+    </SubmitButton>
   );
 }

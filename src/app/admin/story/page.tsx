@@ -1,3 +1,4 @@
+import SubmitButton from "@/components/SubmitButton";
 import DeleteButton from "@/components/admin/DeleteButton";
 import Flash from "@/components/admin/Flash";
 import ImageUpload from "@/components/admin/ImageUpload";
@@ -34,9 +35,7 @@ function StoryForm({ item, nextOrder }: { item?: StorySection; nextOrder: number
         </label>
       </div>
       <div className="admin-actions">
-        <button className="btn btn--gold btn--sm" type="submit">
-          {item ? "保存" : "追加する"}
-        </button>
+        <SubmitButton className="btn btn--gold btn--sm" pendingText={item ? "保存中…" : "追加中…"}>{item ? "保存" : "追加する"}</SubmitButton>
         {item && <DeleteButton action={deleteStory} />}
       </div>
     </form>
